@@ -65,21 +65,12 @@ class Solution
         }
         
         // step 3: Random pointer copy
-        originalNode = head;
-        cloneNode = cloneHead;
-        
-        while(originalNode != NULL && cloneNode != NULL) { 
-            
-            if(originalNode -> arb != NULL) {
-                cloneNode -> arb = originalNode -> arb -> next;
-            }
-            else
-            {
-                cloneNode -> arb  = NULL;
-            }
-            
-            cloneNode = cloneNode -> next;
-            originalNode = originalNode -> next;
+        temp = head;
+        while(temp != NULL){
+           if(temp->next != NULL){
+              temp->next->arb = temp->arb ? temp->arb->next : temp->arb;
+           }
+           temp = temp->next->next;
         }
         
         //step 4: revert step 2 changes
